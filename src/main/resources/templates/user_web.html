@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<title>New Member</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="/js/usercontroller.js"></script>
+<script>
+	
+</script>
+<style>
+table, th, td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+table tr:nth-child(odd) {
+	background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+	background-color: #ffffff;
+}
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link href="content/styles.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+	<div class="container" ng-app="app">
+
+		<ng-include src="'header.html'"></ng-include>
+		<br /> <br />
+		<h3 style="color: blue">New Member</h3>
+		<div ng-controller="postusercontroller">
+			<form class="form-horizontal" name="customerForm"
+				ng-submit="submitForm()">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="firstnameID">FirstName:</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" name="firstname"
+							id="firstnameID" placeholder="Enter FirstName"
+							ng-model="firstname" />
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="lastnameID">LastName:</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" name="lastname"
+							id="lastnameID" placeholder="Enter LastName" ng-model="lastname" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="adddressID">Address:</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" name="address"
+							id="addressID" placeholder="Enter Address" ng-model="address" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="phonenumberID">Phone
+						Number:</label>
+					<div class="col-sm-5">
+						<input type="text" ng-required="true"
+							ng-pattern="/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/"
+							class="form-control" name="phonenumber" id="phonenumberID"
+							placeholder="XXX-XXX-XXXX" ng-model="phonenumber" /> <span
+							ng-show="customerForm.$error.pattern">Enter XXX-XXX-XXXX!</span>
+					</div>
+				</div>
+				<div  class="pure">
+				<div class="form-group" ng-controller="myCtrl" ng-init="loadcombo()">
+					
+					 <label class="control-label col-sm-2"
+						for="coachSelect"> Select Coach: </label>
+						
+						 <select 
+						name="coachSelect" id="coachSelect" ng-model="selectedCoach">
+						<option ng-repeat="coach in coaches" ng-value="coach.id">{{coach.firstname + " " + coach.lastname}}</option>
+					</select>
+					</div>
+
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" ng-disabled="customerForm.$invalid"
+							class="btn btn-default">Submit</button>
+					</div>
+				</div>
+
+			</form>
+
+			<div class="col-sm-offset-2 col-sm-10">
+				<p>{{postResultMessage}}</p>
+			</div>
+			<br /> <br />
+		</div>
+		<div class="col-sm-offset-2 col-sm-10"
+			ng-controller="getusercontroller">
+			<button id="btn-id" type="button" class="btn btn-primary"
+				ng-click="getfunction()">Get All Users</button>
+
+			<table style="width: 100%">
+				<tr ng-if="response">
+					<th>Name</th>
+					<th>Address</th>
+					<th>Phone number</th>
+				</tr>
+				<tr ng-repeat="user in response">
+					<td>{{ " " + user.firstname + " " + user.lastname + " "}}</td>
+					<td>{{ " " + user.address + " "}}</td>
+					<td>{{" " +user.phonenumber + " "}}</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+</body>
+</html>
