@@ -9,9 +9,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 <script src="/js/usercontroller.js"></script>
-<script>
-	
-</script>
+
 <style>
 table, th, td {
 	border: 1px solid grey;
@@ -37,7 +35,7 @@ table tr:nth-child(even) {
 
 	<div class="container" ng-app="app">
 
-		<ng-include src="'header.html'"></ng-include>
+	    <div ng-include="'content/header.html'"></div>
 		<br /> <br />
 		<h3 style="color: blue">New Member</h3>
 		<div ng-controller="postusercontroller">
