@@ -16,7 +16,6 @@ import com.coach.app.dao.CoachRepository;
 import com.coach.app.dao.UserRepository;
 import com.coach.app.model.Coach;
 import com.coach.app.model.User;
-import com.coach.app.model.User2;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @EnableAutoConfiguration(exclude=HibernateJpaAutoConfiguration.class)
 @Service

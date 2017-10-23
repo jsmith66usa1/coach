@@ -2,13 +2,11 @@ package com.coach.app.dao;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.EntityGraph;
-import org.springframework.data.jpa.repository.EntityGraph.EntityGraphType;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.coach.app.model.User;
-import com.coach.app.model.User2;
+
 
 
 

@@ -1,22 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html>
-   
-   
-     <head>
-	  <title>Life Coach</title>
-	  <meta charset="utf-8" />
-	  <meta name="viewport" content="width=device-width, initial-scale=1" />
-	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	  
+<head>
+<title>Life Coach</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+<script src="/js/usercontroller.js"></script>
+
+<style>
+table, th, td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+table tr:nth-child(odd) {
+	background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+	background-color: #ffffff;
+}
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link href="content/styles.css" rel="stylesheet" type="text/css" />
+
 </head>
-   </head>
-	
-   <body>
-     <h3 style="color:blue">Life Coach</h3>
-     <p style="padding-left: 30px;"><a href = "http://localhost:8080/users">Become a member</a></p>
-     <p style="padding-left: 30px;"><a href = "http://localhost:8080/users/coaches">Become a life coach</a></p>
-   </body>
-	
+<body>
+
+	<div class="container" ng-app="app">
+
+		<div ng-include="'content/header.html'"></div>
+		<br /> <br />
+		<ng-view></ng-view>
+
+	</div>
+</body>
 </html>
