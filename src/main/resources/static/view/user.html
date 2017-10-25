@@ -6,23 +6,30 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="firstnameID">FirstName:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" name="firstname"
+				<input type="text"  ng-required="true"  class="form-control" name="firstname"
 					id="firstnameID" placeholder="Enter FirstName" ng-model="firstname" />
+					<small  style="color:red ; text-align: center;" 
+					ng-show="customerForm.firstname.$touched && customerForm.firstname.$invalid ">Enter valid first name</small>
 			</div>
 
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="lastnameID">LastName:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" name="lastname"
+				<input type="text"  ng-required="true" class="form-control" name="lastname"
 					id="lastnameID" placeholder="Enter LastName" ng-model="lastname" />
+					<small  style="color:red ; text-align: center;" 
+					ng-show="customerForm.lastname.$touched && customerForm.lastname.$invalid ">Enter valid last name</small>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="adddressID">Address:</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" name="address"
+				<input type="text"  ng-required="true"  class="form-control" name="address"
 					id="addressID" placeholder="Enter Address" ng-model="address" />
+					<small  style="color:red ; text-align: center;" 
+					ng-show="customerForm.address.$touched && customerForm.address.$invalid ">Enter valid address</small>
+					
 			</div>
 		</div>
 		<div class="form-group">
@@ -32,8 +39,9 @@
 				<input type="text" ng-required="true"
 					ng-pattern="/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/"
 					class="form-control" name="phonenumber" id="phonenumberID"
-					placeholder="XXX-XXX-XXXX" ng-model="phonenumber" /> <span
-					ng-show="customerForm.$error.pattern">Enter XXX-XXX-XXXX!</span>
+					placeholder="XXX-XXX-XXXX" ng-model="phonenumber" />
+					<small  style="color:red ; text-align: center;" 
+					ng-show="customerForm.phonenumber.$touched && customerForm.phonenumber.$invalid ">Enter XXX-XXX-XXXX</small>
 			</div>
 		</div>
 		<div class="pure">

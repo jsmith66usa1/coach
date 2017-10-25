@@ -125,4 +125,6 @@ main{
   cursor: pointer;
   margin-left: 10px;
 }
-
+input.ng-invalid.ng-touched, text.ng-invalid.ng-touched {
+	border:2px solid red;
+}
