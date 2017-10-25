@@ -1,13 +1,15 @@
 
 <h3 style="color: blue">New Life Coach</h3>
 <div >
-	<form class="form-horizontal" name="customerForm"
-		ng-submit="submitForm()">
+	<form class="form-horizontal" name="coachForm"
+		ng-submit="submitForm()" novalidate>
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="firstnameID">FirstName:</label>
 			<div class="col-sm-5">
 				<input type="text" class="form-control" name="firstname"
-					id="firstnameID" placeholder="Enter FirstName" ng-model="firstname" />
+					id="firstnameID" placeholder="Enter FirstName" ng-model="firstname" ng-required="true"/>
+						<small  style="color:red ; text-align: center;"
+					ng-show="coachForm.firstname.$touched && coachForm.firstname.$invalid ">Enter valid first name</small>
 			</div>
 
 		</div>
@@ -15,14 +17,18 @@
 			<label class="control-label col-sm-2" for="lastnameID">LastName:</label>
 			<div class="col-sm-5">
 				<input type="text" class="form-control" name="lastname"
-					id="lastnameID" placeholder="Enter LastName" ng-model="lastname" />
+					id="lastnameID" placeholder="Enter LastName" ng-model="lastname" ng-required="true"/>
+					<small  style="color:red ; text-align: center;"
+					ng-show="coachForm.lastname.$touched && coachForm.lastname.$invalid ">Enter valid last name</small>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="adddressID">Address:</label>
 			<div class="col-sm-5">
 				<input type="text" class="form-control" name="address"
-					id="addressID" placeholder="Enter Address" ng-model="address" />
+					id="addressID" placeholder="Enter Address" ng-model="address" ng-required="true"/>
+					<small  style="color:red ; text-align: center;" 
+					ng-show="coachForm.address.$touched && coachForm.address.$invalid ">Enter valid address</small>
 			</div>
 		</div>
 		<div class="form-group">
@@ -31,12 +37,15 @@
 			<div class="col-sm-5">
 				<input type="text" class="form-control" name="phonenumber"
 					id="phonenumberID" placeholder="Enter Phone Number"
-					ng-model="phonenumber" />
+					ng-pattern="/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/"
+					ng-model="phonenumber" ng-required="true"/>
+					<small  style="color:red ; text-align: center;" 
+					ng-show="coachForm.phonenumber.$touched && coachForm.phonenumber.$invalid ">Enter XXX-XXX-XXXX</small>
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">Submit</button>
+				<button type="submit"class="btn btn-default" ng-disabled="coachForm.$invalid">Submit</button>
 			</div>
 		</div>
 

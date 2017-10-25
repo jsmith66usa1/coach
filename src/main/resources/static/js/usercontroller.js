@@ -52,6 +52,9 @@ app.controller('postusercontroller', function($scope, $http, $location) {
 		$scope.lastname = "";
 		$scope.address = "";
 		$scope.phonenumber = "";
+		$scope.customerForm.$setPristine();
+	 
+	    $scope.customerForm.$setUntouched();
 	}
 	$scope.getfunction = function(){
 		var url = "/users/user";
@@ -102,7 +105,11 @@ app.controller('postcoachcontroller', function($scope, $http, $location) {
 		$scope.lastname = "";
 		$scope.address = "";
 		$scope.phonenumber = "";
+		$scope.coachForm.$setPristine();
+	    
+	    $scope.coachForm.$setUntouched();
 	}
+	
 	$scope.getcoaches = function(){
 		var url ="/users/coaches/coach";
 		
