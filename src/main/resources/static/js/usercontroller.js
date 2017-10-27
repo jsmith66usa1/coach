@@ -2,7 +2,15 @@ var app = angular.module('app',  ['ngRoute']);
 app.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
+			templateUrl: '/view/home.html',
+			controller: 'postusercontroller'
+		})
+		.when('/user', {
 			templateUrl: '/view/user.html',
+			controller: 'postusercontroller'
+		})
+		.when('/member', {
+			templateUrl: '/view/member.html',
 			controller: 'postusercontroller'
 		})
 		.when('/coach', {
@@ -29,6 +37,7 @@ app.controller('postusercontroller', function($scope, $http, $location) {
                 }
         }
 		var data = {
+		    username: $scope.username,
             firstname: $scope.firstname,
             lastname: $scope.lastname,
             address: $scope.address,
@@ -47,7 +56,7 @@ app.controller('postusercontroller', function($scope, $http, $location) {
 		}, function error(response) {
 			$scope.postResultMessage = "Error with status: " +  response.statusText;
 		});
-		
+		$scope.username = "";
 		$scope.firstname = "";
 		$scope.lastname = "";
 		$scope.address = "";
@@ -58,6 +67,15 @@ app.controller('postusercontroller', function($scope, $http, $location) {
 	}
 	$scope.getfunction = function(){
 		var url = "/users/user";
+		
+		$http.get(url).then(function (response) {
+			$scope.response = response.data
+		}, function error(response) {
+			$scope.postResultMessage = "Error with status: " +  response.statusText;
+		});
+	}
+	$scope.getMemberfunction = function(){
+		var url = "/users/user/"+ $scope.username;
 		
 		$http.get(url).then(function (response) {
 			$scope.response = response.data
@@ -89,6 +107,7 @@ app.controller('postcoachcontroller', function($scope, $http, $location) {
                 }
         }
 		var data = {
+		    username: $scope.username,
             firstname: $scope.firstname,
             lastname: $scope.lastname,
             address: $scope.address,
@@ -98,9 +117,10 @@ app.controller('postcoachcontroller', function($scope, $http, $location) {
 		$http.post(url, data, config).then(function (response) {
 			$scope.postResultMessage = response.data;
 		}, function error(response) {
-			$scope.postResultMessage = "Error with status: " +  response.statusText;
+			$scope.postResultMessage = "Error with status: " +  response.data;
 		});
 		
+		$scope.username = "";
 		$scope.firstname = "";
 		$scope.lastname = "";
 		$scope.address = "";

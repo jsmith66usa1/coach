@@ -52,5 +52,14 @@ public class UserService {
 		}
 		userRepository.save(user);
 	}
-
+	@Transactional
+	public User getUserByUsername(String userName) {
+		System.out.println("************** " + userName);
+		User user = userRepository.findByUsername(userName);
+		for(Coach coach : user.getCoaches()) {
+			coach.setUsers(null);
+		}
+		System.out.println("************** " + user);
+		return user;
+	}
 }

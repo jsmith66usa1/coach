@@ -16,6 +16,8 @@ import com.coach.app.model.User;
 public interface UserRepository extends CrudRepository<User, Long> {
     List<User> findAll();
     
-    @Query(nativeQuery = true, value= "select  user0_.id, user0_.firstname , user0_.lastname , user0_.address, user0_.phonenumber from user user0_")
+    @Query(nativeQuery = true, value= "select  user0_.id, user0_.username , user0_.firstname , user0_.lastname , user0_.address, user0_.phonenumber from user user0_")
     List<Object[]> findAllUsersOnly();
+    
+    User findByUsername(String username);
 }

@@ -1,0 +1,45 @@
+
+
+<div class="search">
+
+	<input type="text" ng-required="true" class="form-control"
+		name="username" id="usernameID" placeholder="Enter User Name"
+		ng-model="username" />
+		<button id="btn-id" type="button" class="btn btn-primary"
+		ng-click="getMemberfunction()">Get Member</button>
+</div>
+<br />
+<br />
+<h1 ng-show="response">Member</h1>
+<table style="width: 100%">
+	<tr ng-if="response">
+		<th>User name</th>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Phone number</th>
+	</tr>
+	<tr ng-if="response">
+		<td>{{ " " + response.username }}</td>
+		<td>{{ " " + response.firstname + " " + coach.lastname + " "}}</td>
+		<td>{{ " " + response.address + " "}}</td>
+		<td>{{" " +response.phonenumber + " "}}</td>
+	</tr>
+</table>
+<br />
+<br />
+<small ng-show="response">Coaches of {{ " " + response.username }}</small>
+<table style="width: 100%">
+	<tr ng-if="response">
+		<th>User name</th>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Phone number</th>
+	</tr>
+	<tr ng-repeat="coach in response.coaches">
+		<td>{{ " " + coach.username }}</td>
+		<td>{{ " " + coach.firstname + " " + coach.lastname + " "}}</td>
+		<td>{{ " " + coach.address + " "}}</td>
+		<td>{{" " +coach.phonenumber + " "}}</td>
+	</tr>
+</table>
+</div>
