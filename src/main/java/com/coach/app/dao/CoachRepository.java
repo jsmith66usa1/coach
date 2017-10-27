@@ -16,7 +16,7 @@ import com.coach.app.model.Coach;
 @Transactional
 public interface CoachRepository extends CrudRepository<Coach, Long> {
     List<Coach> findAll();
-    @Query(nativeQuery = true, value= "select coach0_.id, coach0_.firstname , coach0_.lastname , coach0_.address, coach0_.phonenumber from coach coach0_")
+    @Query(nativeQuery = true, value= "select coach0_.id, coach0_.username, coach0_.firstname, coach0_.lastname , coach0_.address, coach0_.phonenumber from coach coach0_")
     List<Object[]> findAllCoachsOnly();
     
     Coach findById(Integer id);

@@ -128,3 +128,15 @@ main{
 input.ng-invalid.ng-touched, text.ng-invalid.ng-touched {
 	border:2px solid red;
 }
+.fieldwrapper{
+white_space: nowrap;
+}
+
+.search input {
+  width:50%; float:left; padding: 5px;
+}
+
+.search button {
+  margin:0 10px;
+ 
+}
